@@ -1,0 +1,98 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+import java.util.*;
+import java.util.Scanner;
+
+class MyProgram3
+{
+	public static Scanner keyboard = new Scanner(System.in);
+
+	public static String[] fileArray(String fileNameIn, int lengthIn)
+	{
+		int index = 0;
+		String[] inputArray = new String[lengthIn]; // Creates an array for putting the text file into
+
+		try
+		{
+			File file = new File(fileNameIn);
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			// Puts each line into the array.
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				inputArray[index] = line;
+				index++;
+			}
+			fileReader.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		return inputArray;
+    }
+
+		public static int numberOfLines(String fileNameIn)
+	{
+		int arrayLength = 0;
+		try
+		{
+			File file = new File(fileNameIn);
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				arrayLength++;
+			}
+			fileReader.close();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return arrayLength;
+	}
+
+
+	public static void checkString(String stringIn, String[] arrayIn, int lengthIn)
+	{
+		for (int i=0; i < lengthIn; i++)
+		{
+			if (arrayIn[i].contains(stringIn))
+			{
+				System.out.println(arrayIn[i]);
+			}
+			else{}
+		}
+	}
+
+	public static void main(String args[])
+	{
+		String fileName = "";
+		String searchFor = "";
+		char quit = 'y';
+		int length=0;
+
+		while (quit == 'y')
+		{
+			
+			System.out.println("Please enter a filename you want to lookup: ");
+			fileName = keyboard.nextLine();
+			length = numberOfLines(fileName);
+			System.out.println("Please enter the word you are searching for: ");
+			searchFor = keyboard.nextLine();
+			String[] myArray = fileArray(fileName, length);
+			checkString(searchFor,myArray, length);
+			System.out.println("Would you like to continue? (press y for yes.) Press enter to quit");
+			String dummy = keyboard.nextLine();
+			quit = dummy.charAt(0);
+		}
+	}
+}
