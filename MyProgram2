@@ -1,0 +1,77 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+import java.util.*;
+
+class MyProgram2
+{
+
+public static void insertionSort(String[] unsorted) 
+{
+for (int k = 0; k < 8; k ++)
+{
+	for (int i = 1; i < unsorted.length; i++) 
+	{ 
+		int j = i; 
+		while (j > 0 && unsorted[j].charAt(k) < unsorted[j - 1].charAt(k))
+		{
+		 //swap 
+			String temp = unsorted[j - 1]; 
+			unsorted[j - 1] = unsorted[j]; 
+			unsorted[j] = temp; 
+			j--; 
+		}
+ 	}
+}
+ }
+
+	public static String[] parts;
+
+	public static void printArray(String[] arrayIn)
+	{
+insertionSort(arrayIn);
+		for (int i=0;i<arrayIn.length;i++)
+		{
+
+			checkForNumber(arrayIn[i]);
+		}
+	}
+
+	public static void checkForNumber(String stringIn)
+	{
+//System.out.println(stringIn.length() + "");
+		char c = stringIn.charAt(0);
+		if (stringIn.length() > 2)
+		{
+			char c2 = stringIn.charAt(1);
+			char c3 = stringIn.charAt(2);
+			if (c == '2' && c2 =='5' && c3 =='5'){}
+			else
+			{
+				if (stringIn.length() >6 && c >= '0' && c <= '9')
+				{
+					System.out.println(stringIn);
+				}
+			}
+		}
+	}
+
+	public static void splitString(String stringIn)
+	{
+		String[] parts = stringIn.split("\\s+");
+		printArray(parts);
+		for (int i=0; i < parts.length; i++)
+		{
+		//	printArray(parts[i]);
+		}
+	}
+
+	public static void main(String args[])
+	{
+//		splitString("This 1is 23a test 123");
+//		splitString("no access-list outside extended permit tcp 209.193.60.96 255.255.255.224 host 209.193.44.85 eq ftp o access-list outside_cryptomap_1 extended permit ip 209.193.8.64 255.255.255.224 object-group revere-hostsobject-group network og_um_hosts 209.193.60.101 209.193.60.102 209.193.60.108 209.193.60.112 no access-list outside extended permit udp object-group og_um_hosts host 209.193.44.46 eq snmptrap 209.193.44.1 209.193.60.126 209.193.55.90 209.112.141.210 no access-list outside extended permit tcp object-group og_network_gear host 209.193.44.25 eq tacacs no static (inside,outside) 209.193.44.25 10.136.103.31 netmask 255.255.255.255 tcp 50 25 no access-list outside extended permit tcp object-group awn-host host 209.193.44.104 eq https no access-list outside extended permit tcp object-group awn-host object-group vtc-f5-host eq https no access-list nonat-dmz-pci-ptp extended deny ip host 10.136.125.104 object-group awn-host no access-list dmz-pci-ptp_nat_outbound extended permit ip object-group vtc-host object-group awn-host no access-list outside extended permit tcp object-group awn-host host 209.193.44.91 eq https no static (dmz-ext,outside) 209.193.44.91 10.136.109.91 netmask 255.255.255.255  216.67.13.205 209.235.29.168 66.223.155.33 209.235.29.165 66.223.155.38 66.223.155.39 66.223.155.54 209.193.44.254 209.235.29.189 209.112.166.105 10.136.125.104 no access-list outside extended deny ip host 209.193.44.254 any no access-list outside extended permit tcp host 209.193.44.254 host 209.193.44.104 eq https no access-list outside extended permit tcp host 209.193.44.254 host 10.136.125.104 eq https no access-list outside extended permit udp host 209.193.60.101 host 209.193.44.46 eq snmptrap no access-list outside extended permit udp host 209.193.60.102 host 209.193.44.46 eq snmptrap no access-list outside extended permit udp host 209.193.60.108 host 209.193.44.46 eq snmptrap no access-list outside extended permit udp host 209.193.60.112 host 209.193.44.46 eq snmptrap no access-list outside extended permit tcp host 209.193.60.97 host 209.193.44.38 eq 1500 no access-list outside extended permit tcp host 209.193.44.1 host 209.193.44.25 eq tacacs no access-list outside extended permit tcp host 209.193.60.126 host 209.193.44.25 eq tacac o access-list outside extended permit udp host 209.193.44.1 host 209.193.44.88 eq syslog no access-list outside extended permit udp host 209.193.60.126 host 209.193.44.88 eq syslog no access-list outside extended permit icmp any 209.193.44.0 255.255.255.0 object-group og_corp_icmp no access-list outside extended permit icmp any 209.193.44.0 255.255.255.0 parameter-problem no access-list outside extended permit icmp any 209.193.44.0 255.255.255.0 source-quench no access-list outside extended permit icmp any 209.193.44.0 255.255.255.0 time-exceeded no access-list outside extended permit icmp any 209.193.44.0 255.255.255.0 unreachable no access-list outside extended permit icmp any 209.193.8.64 255.255.255.224 object-group og_corp_icmp no access-list outside extended permit icmp any 209.193.8.64 255.255.255.224 parameter-problem no access-list outside extended permit icmp any 209.193.8.64 255.255.255.224 source-quench no access-list outside extended permit icmp any 209.193.8.64 255.255.255.224 time-exceeded no access-list outside extended permit icmp any 209.193.8.64 255.255.255.224 unreachable no access-list outside extended permit tcp host 209.193.44.254 host 209.193.44.91 eq https no access-list outside extended permit tcp host 209.193.44.234 host 209.165.141.113 eq 8080 no access-list outside extended permit tcp host 209.193.44.234 host 209.165.141.113 eq 8443 no access-list outside extended permit tcp host 209.193.44.234 host 209.165.141.113 eq www no access-list outside extended permit tcp host 209.193.44.234 host 209.165.141.113 eq https no access-list outside extended permit tcp host 209.193.44.233 host 209.165.141.11 eq 8080 no access-list outside permit tcp host 209.193.44.233 host 209.165.141.111 eq 8443 no access-list outside extended permit tcp host 209.193.44.233 host 209.165.141.111 eq www no access-list outside extended permit tcp host 209.193.44.233 host 209.165.141.111 eq https no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.114 eq 8080 no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.114 eq 8443 no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.114 eq www no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.114 eq https no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.113 eq 8080 no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.113 eq 8443 no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.113 eq www no access-list outside extended permit tcp host 209.193.44.232 host 209.165.141.113 eq https no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.112 eq 8080 no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.112 eq 8443 no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.112 eq www no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.112 eq https no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.111 eq 8080 no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.111 eq 8443 no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.111 eq www no access-list outside extended permit tcp host 209.193.44.231 host 209.165.141.111 eq http  no access-list outside extended permit tcp host 209.193.44.234 host 209.165.134.52 eq 8080 no access-list outside extended permit tcp host 209.193.44.234 host 209.165.134.52 eq 8443  no access-list outside extended permit tcp host 209.193.44.234 host 209.165.134.52 eq www no access-list outside extended permit tcp host 209.193.44.234 host 209.165.134.52 eq https no access-list outside extended permit tcp host 209.193.44.232 host 209.165.134.52 eq 8080 no access-list outside extended permit tcp host 209.193.44.232 host 209.165.134.52 eq 8443 no access-list outside extended permit tcp host 209.193.44.232 host 209.165.134.52 eq www no access-list outside extended permit tcp host 209.193.44.232 host 209.165.134.52 eq https no access-list outside extended permit tcp host 209.193.44.233 host 209.165.134.51 eq 8080 no access-list outside extended permit tcp host 209.193.44.233 host 209.165.134.51 eq 8443 no access-list outside extended permit tcp host 209.193.44.233 host 209.165.134.51 eq www no access-list outside extended permit tcp host 209.193.44.233 host 209.165.134.51 eq https no access-list outside extended permit tcp host 209.193.44.231 host 209.165.134.51 eq 8080 no access-list outside extended permit tcp host 209.193.44.231 host 209.165.134.51 eq 8443 o access-list outside extended permit tcp host 209.193.44.231 host 209.165.134.51 eq www no access-list outside extended permit tcp host 209.193.44.231 host 209.165.134.51 eq https 10.136.211.23 10.136.211.24 10.136.107.35 10.136.107.36 10.136.107.35 10.136.107.36 10.0.1.132 ");
+splitString("10.0.1.132 10.136.103.31 10.136.107.35 10.136.107.36 10.136.109.91 10.136.211.23 10.136.211.24 10.136.125.104 66.223.155.33 66.223.155.38 66.223.155.39 66.223.155.54  209.112.141.210 209.112.166.105 209.165.141.113 209.193.60.96 209.193.44.85 209.193.8.64 209.193.60.101 209.193.60.102 209.193.60.108 209.193.60.112 209.193.44.46 209.193.44.1 209.193.60.126 209.193.55.90 209.193.44.25 209.193.44.25 209.193.44.104 209.193.44.91 209.193.44.91 209.193.44.254 209.193.44.254 209.193.44.254 209.193.44.104 209.193.44.254 209.193.60.101 209.193.44.46 209.193.60.102 209.193.44.46 209.193.60.108 209.193.44.46 209.193.60.112 209.193.44.46 209.193.60.97 209.193.44.38 209.193.44.1 209.193.44.25 209.193.60.126 209.193.44.25 209.193.44.1 209.193.44.88 209.193.60.126 209.193.44.88 209.193.44.0 209.193.44.0 209.193.44.0 209.193.44.0 209.193.44.0 209.193.8.64 209.193.8.64 209.193.8.64 209.193.8.64 209.193.8.64 209.193.44.254 209.193.44.91 209.193.44.234 209.193.44.234 209.165.141.113 209.193.44.234 209.165.141.113 209.193.44.234 209.165.141.113 209.193.44.233 209.165.141.11 209.193.44.233 209.165.141.111 209.193.44.233 209.165.141.111 209.193.44.233 209.165.141.111 209.193.44.232 209.165.141.114 209.193.44.232 209.165.141.114 209.193.44.232 209.165.141.114 209.193.44.232 209.165.141.114 209.193.44.232 209.165.141.113 209.193.44.232 209.165.141.113 209.193.44.232 209.165.141.113 209.193.44.232 209.165.141.113 209.193.44.231 209.165.141.112 209.193.44.231 209.165.141.112 209.193.44.231 209.165.141.112 209.193.44.231 209.165.141.112 209.193.44.231 209.165.141.111 209.193.44.231 209.165.141.111 209.193.44.231 209.165.141.111 209.193.44.231 209.165.141.111 209.193.44.234 209.165.134.52 209.193.44.234 209.165.134.52 209.193.44.234 209.165.134.52 209.193.44.234 209.165.134.52 209.193.44.232 209.165.134.52 209.193.44.232 209.165.134.52 209.193.44.232 209.165.134.52 209.193.44.232 209.165.134.52 209.193.44.233 209.165.134.51 209.193.44.233 209.165.134.51 209.193.44.233 209.165.134.51 209.193.44.233 209.165.134.51 209.193.44.231 209.165.134.51 209.193.44.231 209.165.134.51 209.193.44.231 209.165.134.51 209.193.44.231 209.165.134.51 209.235.29.165 209.235.29.168 209.235.29.189 216.67.13.20");
+}
+}
