@@ -1,0 +1,92 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+
+
+class MyProgram
+{
+	public Scanner keyboard = new Scanner(System.in);
+	public String inputTest = "";
+	public static int arrayLength = 0;
+
+	public static void fileArrayCompare(String fileNameIn)
+	{
+		String[] array1 =  fileArray(fileNameIn);
+		for (int i=0;i<array1.length;i++)
+		{
+			for (int j = i+1; j<array1.length;j++)
+			{
+				if(array1[j].equals(array1[i]))
+					System.out.println(array1[j]);
+				else{
+//					System.out.println("There was no match for " + array1[j]);
+				}
+			}
+		}
+        }
+        
+	public static int numberOfLines(String fileNameIn)
+	{
+		int arrayLength = 0;
+		try
+		{
+			File file = new File(fileNameIn);
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = bufferedReader.readLine()) != null)
+			{
+				arrayLength++;
+			}
+			fileReader.close();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return arrayLength;
+	}
+
+
+        public static String[] fileArray(String fileNameIn)
+        {
+                int index = 0;
+                String[] inputArray = new String[numberOfLines("test.txt")];
+		try
+                {
+                        File file = new File(fileNameIn);
+                        FileReader fileReader = new FileReader(file);
+                        BufferedReader bufferedReader = new BufferedReader(fileReader);
+                        StringBuffer stringBuffer = new StringBuffer();
+                        String line;
+                        while ((line = bufferedReader.readLine()) != null)
+                        {
+				inputArray[index] = line;
+                                index++;
+                        }
+                        fileReader.close();
+                }
+                catch (IOException e)
+                {
+                        e.printStackTrace();
+                }
+		return inputArray;
+        }
+
+	public static void printArray(String[] arrayIn)
+	{
+		for (int i=0;i<arrayIn.length;i++)
+		{
+			System.out.println(arrayIn[i]);
+		}
+	}
+
+	public static void main(String args[])
+	{
+		String[] myArray = file
+	}
+
+}
