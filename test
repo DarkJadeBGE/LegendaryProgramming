@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main () {
+  string line;
+  ifstream myfile ("IPaddress.txt");
+  ofstream myfileW ("DNSlookup.txt");
+  if (myfile.is_open())
+  {
+    if (myfileW.is_open())
+    {
+      while (getline (myfile,line))
+      {
+        myfileW << "nslookup " << line << " >> DNSlookup.txt\n" << endl;
+      }
+    }
+    else cout << "Unable to open file";
+  myfileW.close();
+  myfile.close();
+}
+ else cout << "Unable to open file"; 
+  return 0;
+}
