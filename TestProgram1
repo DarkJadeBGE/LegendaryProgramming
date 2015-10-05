@@ -1,0 +1,56 @@
+import java.util.*;
+
+public class accesslist
+{
+
+	private static String accessListName = "";
+	private static String sourceIPaddress = "";
+	private static String sourceSubnet = "";
+	private static String fileName = "";
+
+	static Scanner keyboard = new Scanner(System.in);
+
+//	static void writeToFileBuffer (string fileNameIn, string textIn)
+//	{
+//		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileNameIn + ".txt", true))))
+//		{
+//			out.println(textIn);
+//		}
+//		catch (IOException e)
+//		{
+//		//exception handling left as an exercise for the reader
+//		}
+//	}
+
+	public static String takeInput()
+	{
+		String input = keyboard.nextLine();
+		return input;
+	}
+
+	public static void justPrintLine()
+	{
+
+	}
+
+	public static void accessListCreate()
+	{
+		// what is the name of the access list?
+		System.out.println("Enter the access-list name: ");
+		accessListName = takeInput() + " ";
+		System.out.println("Enter the host IP address: ");
+		sourceIPaddress = takeInput() + " ";
+		System.out.println("Enter the subnet address: ");
+		sourceSubnet = takeInput() + " ";
+		System.out.println("Enter the file name you want to write to: ");
+		fileName = takeInput();
+		System.out.println(fileName + accessListName + sourceIPaddress + sourceSubnet );
+	}
+
+	public static void main(String[] args)
+	{
+		accessListCreate();
+	}
+
+}
+
