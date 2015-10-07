@@ -91,7 +91,7 @@ class QuickSearch
 		}
 	}
 
-	public static void main(String args[])
+	public static void quickSearchDriver()
 	{
 		String fileName = "";
 		String searchFor = "";
@@ -146,5 +146,10 @@ class QuickSearch
 			validFileName = false;
 			quit2 = 'y';
 		}
+	}
+
+	public static void main(String args[])
+	{
+		quickSearchDriver();
 	}
 }
